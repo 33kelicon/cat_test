@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="wow.min.js"></script>
+	<title>안녕하새오, 길냥이애오.</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap" rel="stylesheet">
+    <style type="text/css">
+    	h1,h2,p{ font-family: 'Gaegu', cursive; }
+
+    	.title{text-align: center;font-weight:lighter;font-size: 2em
+    	       ;position: absolute;top:300px;left: 340px;}
+    	.title2{text-align: left;font-weight: lighter;position: absolute;left: 100px; top: 50px;animation: rl 1s;}
+    	.p1{text-align: left;font-weight: lighter;font-size: 1.5em; line-height: 200%;position: absolute;left: 100px;top:530px;animation: rl 1s;}
+    	.p2{text-align: left;font-weight: lighter;font-size: 1.5em; line-height: 200%;position: absolute;left: 600px;top:360px;
+    	    animation: rl 1s;}
+    	.ch{font-weight: lighter; position: absolute;left: 100px; top: 200px;}
+    	.ka{font-weight: lighter; position: absolute;left: 270px; top: 200px;}
+    	.fi{font-weight: lighter; position: absolute;left: 450px; top: 200px;}
+
+    	body{background: linear-gradient(white,yellow);}
+        section{width:1000px;height: 700px;margin: auto;position: relative;}
+         .square{background: url(square.png);background-size: cover;}
+         .square2{background: url(square2.png);background-size: cover;}
+         .square3{background: url(square3.png);background-size: cover;}
+         #cattail{width: 300px;position: absolute;left: -150px;top: 100px;z-index: 4;}
+         #cattail:hover{animation-name: rr1;animation-duration:3s;animation-delay: 0.5s;}
+
+         #paws{width:150px;height: 300px;position: absolute;left: 600px; top:-100px; animation-name: rr2; animation-duration: 2s; animation-delay:1s;}
+         #oldpencil{width: 200px; height: 100px;position: absolute;left: 200px; top:500px;animation-name: rr3;animation-duration: 4s; animation-delay:1s;}
+         #cat1, #cat2, #cat3{width: 100px;}
+         .perspective{perspective: 400px;z-index: 10;}
+
+           @keyframes rr1{ 0%{ left:-150px;top:100px; }
+                         25%{ left: -150px; top:200px; }
+                         50%{ left: -150px; top:300px; }
+                         75%{ left: -150px; top:200px; }
+                         100%{ left: -150px; top:200px; } }
+            @keyframes rr2{ 0%{ left:600px;top:-100px; }
+                         25%{ left: 500px; top:-50px; }
+                         50%{ left: 700px; top:-100px; }
+                         75%{ left: 500px; top:-200px; }
+                         100%{ left: 600px; top:-50px; }}
+             @keyframes rr3{ 0%{ left:200px;top:500px; }
+                         25%{ left: 250px; top:600px; }
+                         50%{ left: 200px; top:500px; }
+                         75%{ left: 250px; top:600px; }
+                         100%{ left: 200px; top:500px; }}
+            @keyframes rl{ from{left:0px;opacity: 0;}
+                           to{left: 100px;opacity: 1} }
+      
+
+   </style>
+</head>
+<body>
+<section class="square">
+  <h1 class="title ">안녕하새오, 길냥이애오.</h1>
+  <img src="tail.png" id="cattail">
+  <img src="paws.png" id="paws">
+  <img src="pencil.png" id="oldpencil">
+</section>
+<section class="square2">
+	<h2 class="title2 wow">제목 : 내 소개! <br> 날짜 : 2020년 11월 20일 날씨: 윈터이즈 커밍</h1>
+	<p class="p1 wow">안녕하새오. 나는 길냥이애오. 나는 길에서 살아오.<br>
+	가끔 나처럼 왼쪽 귀 끝을 살짝 자른 친구들은 중성화(tnr) 수술을 한거애오.</p>
+</section>
+<section class="square3">
+	<h2 class="ch ">치즈태비</h2>
+	<h2 class="ka">올블랙</h2>
+	<h2 class="fi">고등어</h2>
+	<p class="p2 wow">우리는 7가지 종류애오.<br>
+	그리고 종류마다 특징이나 성격도 달라오.</p>
+<img src="cat.png" id="cat1" class="drag" style="display: block;position: absolute; left: 600px; top: 200px; z-index: 10">
+<img src="cat2.png" id="cat2" class="drag" style="display: block;position: absolute; left: 750px; top: 200px; z-index: 10">
+<img src="cat3.png" id="cat3" class="drag" style="display: block;position: absolute; left: 900px; top: 200px; z-index: 10">
+  	<script type="text/javascript">
+	//드래그앤 드롭 코드 시작
+	(function(){
+		var d = false;
+		var target,cx,cy,lx,ly;
+		var t = document.getElementsByClassName("drag");
+		for(var i=0; i<t.length; i++){
+			t[i].style.display = "block";
+			t[i].style.position = "absolute";
+			t[i].style.cursor = "pointer";
+			t[i].ondragstart = function(e){e.preventDefault();};
+			t[i].onmousedown = function(e){ d = true; target = e.target; cx = e.clientX; cy = e.clientY; lx=parseInt(e.target.style.left); ly=parseInt(e.target.style.top);console.log(lx,ly);}
+			t[i].onmouseup = function(){ d = false;}
+			window.onmousemove = function(e){ 
+				if(d){ target.style.left = (lx + e.clientX - cx) + "px"; target.style.top = (ly + e.clientY - cy) + "px";}
+			}
+		}
+	})();
+	//드래그앤 드롭 코드 끝
+	new WOW().init();
+</script>
+</section>
+<section class="square"></section>
+<section class="square"></section>
+<section class="square"></section>
+</body>
+</html>
